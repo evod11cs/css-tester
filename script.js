@@ -4,7 +4,9 @@ html.setOptions({
   // editor options
   selectionStyle: 'line',// "line"|"text"
   highlightActiveLine: true, // boolean,
-  enableBasicAutocompletion:true,
+  enableBasicAutocompletion: true,
+  enableSnippets: true,
+  enableLiveAutocompletion: true,
   highlightSelectedWord: true, // boolean
   readOnly: false, // boolean: true if read only
   cursorStyle: 'ace', // "ace"|"slim"|"smooth"|"wide"
@@ -13,7 +15,7 @@ html.setOptions({
   wrapBehavioursEnabled: true, // boolean
   autoScrollEditorIntoView: undefined, // boolean: this is needed if editor is inside scrollable page
   keyboardHandler: null, // function: handle custom keyboard events
-  
+
   // renderer options
   animatedScroll: false, // boolean: true if scroll should be animated
   displayIndentGuides: false, // boolean: true if the indent should be shown. See 'showInvisibles'
@@ -36,7 +38,7 @@ html.setOptions({
   scrollPastEnd: 0, // number -> !maxLines: if positive, user can scroll pass the last line and go n * editorHeight more distance 
   fixedWidthGutter: false, // boolean: true if the gutter should be fixed width
   theme: 'ace/theme/textmate', // theme string from ace/theme or custom?
- 
+
   // mouseHandler options
   scrollSpeed: 2, // number: the scroll speed index
   dragDelay: 0, // number: the drag delay before drag starts. it's 150ms for mac by default 
@@ -57,13 +59,13 @@ html.setOptions({
   mode: 'ace/mode/html' // string: path to language mode 
 });
 
-html.getSession().on('change', function() {
+html.getSession().on('change', function () {
   updateHtml()
 });
 
 const iframe = document.querySelector("iframe")
 
-function updateHtml(){
+function updateHtml() {
   var ht = html.getSession().getValue();
   var cs = css.getSession().getValue();
   iframe.contentWindow.document.body.innerHTML = ht + `<style>${cs}</style>`
@@ -75,7 +77,10 @@ css.setOptions({
   // editor options
   selectionStyle: 'line',// "line"|"text"
   highlightActiveLine: true, // boolean,
-  enableBasicAutocompletion:true,
+  enableBasicAutocompletion: true,
+  enableBasicAutocompletion: true,
+  enableSnippets: true,
+  enableLiveAutocompletion: true,
   highlightSelectedWord: true, // boolean
   readOnly: false, // boolean: true if read only
   cursorStyle: 'ace', // "ace"|"slim"|"smooth"|"wide"
@@ -84,7 +89,7 @@ css.setOptions({
   wrapBehavioursEnabled: true, // boolean
   autoScrollEditorIntoView: undefined, // boolean: this is needed if editor is inside scrollable page
   keyboardHandler: null, // function: handle custom keyboard events
-  
+
   // renderer options
   animatedScroll: false, // boolean: true if scroll should be animated
   displayIndentGuides: false, // boolean: true if the indent should be shown. See 'showInvisibles'
@@ -107,7 +112,7 @@ css.setOptions({
   scrollPastEnd: 0, // number -> !maxLines: if positive, user can scroll pass the last line and go n * editorHeight more distance 
   fixedWidthGutter: false, // boolean: true if the gutter should be fixed width
   theme: 'ace/theme/textmate', // theme string from ace/theme or custom?
- 
+
   // mouseHandler options
   scrollSpeed: 2, // number: the scroll speed index
   dragDelay: 0, // number: the drag delay before drag starts. it's 150ms for mac by default 
@@ -128,22 +133,22 @@ css.setOptions({
   mode: 'ace/mode/css' // string: path to language mode 
 });
 
-css.getSession().on('change', function() {
+css.getSession().on('change', function () {
   updateHtml()
 });
 
 
 var btns = document.querySelectorAll(".btn");
 
-function handleTab(y,x){
-  btns.forEach(elt=>{
-    elt.classList.replace("active","l")
+function handleTab(y, x) {
+  btns.forEach(elt => {
+    elt.classList.replace("active", "l")
   })
   x.className += " active"
-  if(y == 1){
+  if (y == 1) {
     document.getElementById("editor1").style.display = "none"
     document.getElementById("editor").style.display = "block"
-  }else if(y == 2){
+  } else if (y == 2) {
     document.getElementById("editor").style.display = "none"
     document.getElementById("editor1").style.display = "block"
   }

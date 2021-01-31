@@ -8,9 +8,13 @@
 	<link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6/css/reinvented-color-wheel.min.css">
+<script src="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6"></script>
 </head>
 
 <body>
+  <input class="Hexcolor" readonly></input>
+  <div id="colorWheel"></div>
 	<div class="content">
 		<div class="area">
 			<div class="page">
@@ -26,6 +30,7 @@
 				<div class="tab">
           <button class="btn active" onclick="handleTab(1,this)">Html</button>
           <button class="btn css" onclick="handleTab(2,this)">Css</button>
+          <div class="seperator"></div>
         </div>
 				<div class="ide" id="editor"></div>
         <div class="ide" id="editor1"></div>
@@ -33,6 +38,8 @@
 		</div>
 	</div>
 	<script src="script.js">
+	</script>
+	<script src="handler.js">
 	</script>
 </body>
 
