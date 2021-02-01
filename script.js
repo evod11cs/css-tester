@@ -1,5 +1,7 @@
 var html = ace.edit("editor");
 ace.require("ace/ext/language_tools");
+
+
 html.setOptions({
   // editor options
   selectionStyle: 'line',// "line"|"text"
@@ -61,6 +63,7 @@ html.setOptions({
 
 html.getSession().on('change', function () {
   updateHtml()
+  sessionStorage.setItem("html",html.getSession().getValue());
 });
 
 const iframe = document.querySelector("iframe")
@@ -135,6 +138,7 @@ css.setOptions({
 
 css.getSession().on('change', function () {
   updateHtml()
+  sessionStorage.setItem("css",css.getSession().getValue());
 });
 
 

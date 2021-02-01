@@ -1,6 +1,10 @@
 const result = document.getElementsByClassName("result")[0]
 
-function handleResize(){
+document.querySelector(".Hexcolor").value = "rgb(255,0,0)"
+
+document.querySelector(".colorShow").style.backgroundColor = document.querySelector(".Hexcolor").value;
+
+function handleResize() {
   result.style.width = iframe.style.width
   result.style.height = iframe.style.height
 }
@@ -9,23 +13,23 @@ iframe.contentWindow.onresize = handleResize
 const hexcode = document.querySelector(".Hexcolor")
 
 new ReinventedColorWheel({
-    appendTo: document.getElementById('colorWheel'),
-    wheelDiameter: 120,
-    wheelThickness: 15,
-    handleDiameter: 16,
-    onChange: function (color) {
-    console.log();
+  appendTo: document.getElementById('colorWheel'),
+  wheelDiameter: 120,
+  wheelThickness: 15,
+  handleDiameter: 16,
+  onChange: function (color) {
     document.querySelector(".Hexcolor").value = HSLToRGB(color.hsl[0], color.hsl[1], color.hsl[2])
-    },
+    document.querySelector(".colorShow").style.backgroundColor = document.querySelector(".Hexcolor").value;
+  },
 })
 
-hexcode.onclick = e=> {
+hexcode.onclick = e => {
   hexcode.select();
   hexcode.setSelectionRange(0, 99999);
   document.execCommand("copy");
 }
 
-function RGBToHex(r,g,b) {
+function RGBToHex(r, g, b) {
   r = r.toString(16);
   g = g.toString(16);
   b = b.toString(16);
@@ -46,8 +50,8 @@ function RGBToHex(rgb) {
   rgb = rgb.substr(4).split(")")[0].split(sep);
 
   let r = (+rgb[0]).toString(16),
-      g = (+rgb[1]).toString(16),
-      b = (+rgb[2]).toString(16);
+    g = (+rgb[1]).toString(16),
+    b = (+rgb[2]).toString(16);
 
   if (r.length == 1)
     r = "0" + r;
@@ -59,19 +63,19 @@ function RGBToHex(rgb) {
   return "#" + r + g + b;
 }
 
-function HSLToRGB(h,s,l) {
+function HSLToRGB(h, s, l) {
   // Must be fractions of 1
   s /= 100;
   l /= 100;
 
   let c = (1 - Math.abs(2 * l - 1)) * s,
-      x = c * (1 - Math.abs((h / 60) % 2 - 1)),
-      m = l - c/2,
-      r = 0,
-      g = 0,
-      b = 0;
+    x = c * (1 - Math.abs((h / 60) % 2 - 1)),
+    m = l - c / 2,
+    r = 0,
+    g = 0,
+    b = 0;
   if (0 <= h && h < 60) {
-    r = c; g = x; b = 0;  
+    r = c; g = x; b = 0;
   } else if (60 <= h && h < 120) {
     r = x; g = c; b = 0;
   } else if (120 <= h && h < 180) {

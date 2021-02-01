@@ -13,10 +13,18 @@
 </head>
 
 <body>
+  <div class="Saver">
+  <input type="text" placeholder="set" class="storeLink" />
+  <button class="save" onclick="handleSave(this)">Set</button>
+  <input type="text" placeholder="get" class="getLink" />
+  <button class="get" onclick="handleGet(this)">Get</button>
+  </div>
   <input class="Hexcolor" readonly></input>
+  <div class="colorShow"></div>
   <div id="colorWheel"></div>
 	<div class="content">
 		<div class="area">
+      <div class="pageWarp">
 			<div class="page">
 				<div class="titleBar">
           <h1 class="main-title" contenteditable>03.Clipping</h1>
@@ -25,6 +33,7 @@
           <iframe></iframe>
         </div>
 			</div>
+      </div>
 
 			<div class="editor">
 				<div class="tab">
@@ -40,6 +49,8 @@
 	<script src="script.js">
 	</script>
 	<script src="handler.js">
+	</script>
+  <script src="saver.js">
 	</script>
 </body>
 
