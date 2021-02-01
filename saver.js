@@ -1,14 +1,3 @@
-// window.onload = () =>{
-//   let htmlCode = localStorage.getItem("html")
-//   let cssCode = localStorage.getItem("css")
-//   if(htmlCode){
-//     html.setValue(htmlCode, 1)
-//   }
-//   if(cssCode){
-//     css.setValue(cssCode, 1)
-//   }
-// }
-
 const storeLink = document.querySelector(".storeLink")
 const getLink = document.querySelector(".getLink")
 
@@ -25,4 +14,8 @@ function handleGet(elt){
   let cssco = localStorage.getItem(title+"-css")
   html.setValue(htmlco, 1)
   css.setValue(cssco, 1)
+  setTitle(title)
+}
+function setTitle(t){
+  document.querySelector(".main-title").innerHTML = t
 }
