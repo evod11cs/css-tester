@@ -1,6 +1,12 @@
 var html = ace.edit("editor");
 ace.require("ace/ext/language_tools");
 
+window.addEventListener("load", () => {
+  let h = sessionStorage.getItem("html")
+  let c = sessionStorage.getItem("css")
+  html.setValue(h, 1)
+  css.setValue(c,1)
+})
 
 html.setOptions({
   // editor options
@@ -63,7 +69,7 @@ html.setOptions({
 
 html.getSession().on('change', function () {
   updateHtml()
-  sessionStorage.setItem("html",html.getSession().getValue());
+  sessionStorage.setItem("html", html.getSession().getValue());
 });
 
 const iframe = document.querySelector("iframe")
@@ -138,7 +144,7 @@ css.setOptions({
 
 css.getSession().on('change', function () {
   updateHtml()
-  sessionStorage.setItem("css",css.getSession().getValue());
+  sessionStorage.setItem("css", css.getSession().getValue());
 });
 
 
